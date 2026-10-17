@@ -1,49 +1,89 @@
-html {
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     background: linear-gradient(to right, rgb(181, 233, 77), #31c34a, #098e2c);
     font-family: 'Inknut Antiqua', sans-serif;
 }
 
+.alerta{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #dc3545;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
+    z-index: 1000;
+    animation: mostrar 0.5s ease;
+}
+
+@keyframes mostrar{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
 
 form {
     background-color: rgba(255, 255, 255, 0.505);
-    box-shadow: inset;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     text-align: center;
-    position: relative;
-    left: 580px;
-    top: 50px;
     border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 input {
     background-color: white;
     border-radius: 8px;
-    width: 200px;
-    height: 30px;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
     text-align: center;
     border: none;
-    position: relative;
-    left: 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
 }
+
 
 img {
-    position: relative;
-    left: 30px;
-    top: 5px;
+    max-width: 100px;
+    margin-bottom: 2px;
 }
 
+
 button {
-    font-family: 'inknut Antiqua', sans-serif;
+    font-family: 'Inknut Antiqua', sans-serif;
     font-size: 15px;
     border: none;
     background-color: #01ff44;
     color: white;
     cursor: pointer;
-    position: relative;
-    top: 10px;
-    width: 150px;
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
     border-radius: 8px;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -51,7 +91,24 @@ button:hover {
     color: black;
 }
 
+
 a {
     color: blue;
     text-decoration: none;
+}
+
+
+@media (max-width: 480px) {
+    form {
+        padding: 15px;
+    }
+
+    input,
+    button {
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 80px;
+    }
 }
