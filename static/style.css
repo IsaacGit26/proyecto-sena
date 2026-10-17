@@ -1,0 +1,57 @@
+html {
+    background: linear-gradient(to right, rgb(181, 233, 77), #31c34a, #098e2c);
+    font-family: 'Inknut Antiqua', sans-serif;
+}
+
+
+
+form {
+    background-color: rgba(255, 255, 255, 0.505);
+    box-shadow: inset;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    left: 580px;
+    top: 50px;
+    border-radius: 8px;
+}
+
+input {
+    background-color: white;
+    border-radius: 8px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    position: relative;
+    left: 20px;
+}
+
+img {
+    position: relative;
+    left: 30px;
+    top: 5px;
+}
+
+button {
+    font-family: 'inknut Antiqua', sans-serif;
+    font-size: 15px;
+    border: none;
+    background-color: #01ff44;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    top: 10px;
+    width: 150px;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: aqua;
+    color: black;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <section>
+        <form action="/registro" method="post">
+            <h1>Registrate</h1>
+            <label>Nombre</label>
+            <br>
+            <input type="text" name="nombre" placeholder="nombre" required> <img src="static/image/usuario.png" height="20px">
+            <br>
+            <label>Correo electrónico</label>
+            <br>
+            <input type="email" name="correoElectronico" placeholder="email" required> <img src="static/image/correo.png" height="20px">
+            <br>
+            <label>Contraseña</label>
+            <br>
+            <input type="password" name="password" placeholder="contraseña" required> <img src="static/image/contraseña.png" height="20px">
+            <br>
+            <button type="submit">Crear cuenta</button>
+            <p>¿Ya tienes una cuenta? <a href="{{ url_for('formulario_login') }}">Iniciar sesión</a></p>
+        </form>
+    </section>
+</body>
+</html>
