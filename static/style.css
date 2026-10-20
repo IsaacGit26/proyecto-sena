@@ -6,30 +6,58 @@ html, body {
     background: linear-gradient(to right, rgb(181, 233, 77), #31c34a, #098e2c);
     font-family: 'Inknut Antiqua', sans-serif;
 }
-
-.alerta{
+/* Contenedor flotante en la esquina superior derecha */
+.flash-container {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #dc3545;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,.3);
-    z-index: 1000;
-    animation: mostrar 0.5s ease;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-@keyframes mostrar{
-    from{
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Estilo base de la alerta flotante */
+.flash-message {
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeInOut 4s ease forwards;
+}
+
+/* Colores según la categoría del mensaje (success o danger) */
+.flash-message.success {
+    background-color: #2ecc71; /* Verde */
+}
+
+.flash-message.danger {
+    background-color: #e74d3c9a; /* Rojo */
+}
+
+/* Botón para cerrar la alerta manualmente */
+.flash-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+/* Animación opcional para que aparezca suavemente */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); display: none; }
 }
 
 body {

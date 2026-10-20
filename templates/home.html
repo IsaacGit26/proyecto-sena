@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel principal</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
 </head>
+
 <body>
     <footer>
         <nav>
@@ -19,6 +23,36 @@
     </footer>
     <section>
         <h1>Pantalla principal</h1>
+        <div class="cards">
+    <div class="card">
+        <img  src="{{ url_for('static', filename='image/personas.png') }}">
+        <h3>Total del personal: </h3>
+        <p>Un total aproximado de los datos suministrados en la plataforma</p>
+        <a class="boton-cards" href="{{ url_for('personal') }}">
+            Datos generales
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='image/veredas.png') }}">
+        <h3>Total del personal en las veredas: </h3>
+        <p>Un total aproximado de los datos suministrados en la plataforma</p>
+        <a class="boton-cards" href="{{ url_for('veredas') }}">
+            Datos generales
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='image/familias.png') }}">
+        <h3>Total de familias: </h3>
+        <p>Un total aproximado de los datos suministrados en la plataforma</p>
+        <a class="boton-cards" href="{{ url_for('familias') }}">
+            Datos generales
+        </a>
+    </div>
+</div>
+        </div>
     </section>
 </body>
+
 </html>

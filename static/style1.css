@@ -1,15 +1,15 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-color: #FAF0E6;
     font-family: 'Inknut Antiqua', sans-serif;
     text-align: center;
 }
 
-
 nav {
     background-color: rgb(25, 119, 251);
     border-radius: 8px;
-    box-shadow: 2px 4px blue;
+    box-shadow: 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más natural */
     width: 90%;
     max-width: 600px;
     min-height: 50px;
@@ -23,13 +23,7 @@ nav {
 }
 
 
-h1,
-h2 {
-    margin-top: 20px;
-}
-
-
-a {
+nav a {
     padding: 8px 12px;
     color: white;
     text-decoration: none;
@@ -37,12 +31,94 @@ a {
     transition: 0.3s;
 }
 
-a:hover {
+nav a:hover {
     background-color: black;
 }
 
+h1, h2 {
+    margin-top: 20px;
+}
+
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; 
+    gap: 30px;
+    
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+
+.card {
+    background-color: #ffffff;
+    font-size: 14px;
+    flex: 1 1 320px;
+    max-width: 400px;
+    min-height: 280px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.card img{
+    height: 70px;         
+    width: auto;          
+    object-fit: contain;  
+    align-self: center;   
+    margin-bottom: 10px;
+}
+
+.boton-cards {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 160px;
+    height: 42px;
+    background-color: #0d6efd; 
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    box-sizing: border-box;
+}
+
+.boton-cards:hover {
+    background-color: #0b5ed7;
+}
+
+
+
 
 @media (max-width: 768px) {
+    .cards {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .card {
+        max-width: 100%;
+    }
+
     nav {
         width: 95%;
         gap: 10px;
@@ -57,15 +133,30 @@ a:hover {
     }
 }
 
+
 @media (max-width: 480px) {
+    .cards {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .boton-cards {
+        max-width: 100%; 
+    }
+
     nav {
         flex-direction: column;
         padding: 15px;
     }
 
-    a {
+    nav a {
         display: block;
         width: 100%;
+        box-sizing: border-box;
     }
 
     h1 {
