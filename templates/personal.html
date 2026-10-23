@@ -7,8 +7,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+
+        <style>
+.alert{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    animation: aparecer 0.5s ease;
+}
+
+.alert-success{
+    background-color: #28a745;
+}
+
+.alert-danger{
+    background-color: #dc3545;
+}
+
+.alert-warning{
+    background-color: #ffc107;
+    color: black;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+</style>
+
 </head>
 <body>
+     {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for categoria, mensaje in messages %}
+            <div class="alert alert-{{ categoria }}">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
     <footer>
         <nav>
             <a href="{{url_for('panel_principal')}}">Pantalla principal</a>
@@ -16,9 +64,62 @@
             <a href="{{url_for('veredas')}}">Veredas</a>
             <a href="{{url_for('familias')}}">Familias</a>
         </nav>
+        <h2>Personal</h2>
     </footer>
     <section>
-        <h2>Personal</h2>
+    <a id="link-datos" href="{{url_for('registro_personal')}}">Ingresar datos</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Tipo de documento</th>
+            <th>Numero de documento</th>
+            <th>Genero</th>
+            <th>Fecha nacimiento</th>
+            <th>Edad</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Estado civil</th>
+            <th>Bautizado</th>
+            <th>Fecha del bautismo</th>
+            <th>Acciones</th>
+        </tr>
+        <tbody>
+            {% for persona in personas %}
+        <tr>
+            <td> {{ persona.idPersonas }}</td>
+            <td> {{ persona.nombre }}</td>
+            <td> {{ persona.tipoDocumento }}</td>
+            <td> {{ persona.documento}}</td>
+            <td> {{ persona.genero }}</td>
+            <td> {{ persona.fechaNacimiento }}</td>
+            <td> {{ persona.edad}}</td>
+            <td> {{ persona.telefono}}</td>
+            <td> {{ persona.direccion}}</td>
+            <td> {{ persona.estadoCivil}}</td>
+            <td> {{ persona.bautizado}}</td>
+            <td> {{ persona.fechaBautismo}}</td>
+            <td>
+                <a href="{{url_for('editar_persona', id=persona.idPersonas)}}">
+                    Actualizar
+                </a>
+                |
+                <a href="{{url_for('eliminar_persona', id=persona.idPersonas)}}"
+                onclick="return confirm('¿Desea elimanar este registro?')"
+                >Eliminar</a>
+            </td>
+        </tr> 
+        {% endfor %}
+    </tbody>
+    </table>
     </section>
+    <script>
+    setTimeout(() => {
+    const alertas = document.querySelectorAll(".alert");
+    alertas.forEach(alerta => {
+        alerta.style.display = "none";
+    });
+}, 3000);
+</script>
 </body>
 </html>

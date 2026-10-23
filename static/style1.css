@@ -1,15 +1,17 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     background-color: #FAF0E6;
-    font-family: 'Inknut Antiqua', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 
 nav {
     background-color: rgb(25, 119, 251);
     border-radius: 8px;
-    box-shadow: 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más natural */
+    box-shadow: 2px 4px rgba(0, 0, 0, 0.2);
+    /* Sombra más natural */
     width: 90%;
     max-width: 600px;
     min-height: 50px;
@@ -35,7 +37,8 @@ nav a:hover {
     background-color: black;
 }
 
-h1, h2 {
+h1,
+h2 {
     margin-top: 20px;
 }
 
@@ -44,11 +47,11 @@ h1, h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch; 
+    align-items: stretch;
     gap: 30px;
-    
+
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 
@@ -75,11 +78,11 @@ h1, h2 {
 }
 
 
-.card img{
-    height: 70px;         
-    width: auto;          
-    object-fit: contain;  
-    align-self: center;   
+.card img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    align-self: center;
     margin-bottom: 10px;
 }
 
@@ -90,7 +93,7 @@ h1, h2 {
     width: 100%;
     max-width: 160px;
     height: 42px;
-    background-color: #0d6efd; 
+    background-color: #0d6efd;
     color: white;
     text-decoration: none;
     border: none;
@@ -106,6 +109,51 @@ h1, h2 {
     background-color: #0b5ed7;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+td {
+    background-color: white;
+}
+
+th {
+    background-color: #058126;
+    
+    color: white;
+}
+
+
+
+#link-datos {
+    color: black;
+    text-decoration: none;
+}
+
+#link-datos:hover{
+    color: blue;
+}
+
+table a {
+    color: black;
+    text-decoration: none;
+}
+
+table a:hover{
+    color: #0b5ed7;
+}
+
+
 
 
 
@@ -114,7 +162,7 @@ h1, h2 {
         gap: 20px;
         padding: 15px;
     }
-    
+
     .card {
         max-width: 100%;
     }
@@ -145,7 +193,7 @@ h1, h2 {
     }
 
     .boton-cards {
-        max-width: 100%; 
+        max-width: 100%;
     }
 
     nav {

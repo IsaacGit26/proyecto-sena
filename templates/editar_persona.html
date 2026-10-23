@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar datos</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+</div>
+    <section>
+        <form action="" method="post">
+            <label>Nombre</label>
+            <br>
+            <input type="text" name="nombre" value="{{ persona.nombre}}">
+            <br>
+            <label>Tipo de documento</label>
+            <br>
+            <select name="tipoDocumento">
+                <option value="RC" {% if persona.tipoDocumento == 'RC' %} selected{% endif %}>RC</option>
+                <option value="TI" {% if persona.tipoDocumento == 'TI' %} selected{% endif %}>TI</option>
+                <option value="CD" {% if persona.tipoDocumento == 'CD' %} selected{% endif %}>CD</option>
+            </select>
+            <br>
+            <label>Numero de documento</label>
+            <br>
+            <input type="number" name="documento" value="{{ persona.documento}}">
+            <br>
+            <label>Genero</label>
+            <br>
+            <select name="genero">
+                <option value="masculino" {% if persona.genero == 'masculino' %} selected{% endif %}>Masculino</option>
+                <option value="femenino" {% if persona.genero == 'femenino' %} selected {% endif %}>Femenino</option>
+            </select>
+            <br>
+            <label>Fecha de nacimiento</label>
+            <br>
+            <input type="date" name="fechaNacimiento" value="{{persona.fechaNacimiento}}">
+            <br>
+            <label>Edad</label>
+            <br>
+            <input type="number" name="edad" value="{{persona.edad}}">
+            <br>
+            <label>Teléfono</label>
+            <br>
+            <input type="number" name="telefono" value="{{persona.telefono}}">
+            <br>
+            <label>Dirección</label>
+            <br>
+            <input type="text" name="direccion" value="{{persona.direccion}}">
+            <br>
+            <label>Estado civil</label>
+            <br>
+            <input type="text" name="estadoCivil" value="{{persona.estadoCivil}}">
+            <br>
+            <label>Bautizado</label>
+            <br>
+            <input type="text" name="bautizado" value="{{persona.bautizado}}">
+            <br>
+            <label>Fecha del bautismo</label>
+            <br>
+            <input type="date" name="fechaBautismo" value="{{persona.fechaBautismo}}">
+            <br>
+            <button type="submit">Actualizar datos</button>
+            <a href="{{url_for('personal')}}">Cancelar</a>
+        </form>
+    </section>
+</body>
+</html>

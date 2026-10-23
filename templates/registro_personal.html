@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro_personal</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+
+   <!--<style>
+.alert{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    animation: aparecer 0.5s ease;
+}
+
+.alert-success{
+    background-color: #28a745;
+}
+
+.alert-danger{
+    background-color: #dc3545;
+}
+
+.alert-warning{
+    background-color: #ffc107;
+    color: black;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+</style>--> 
+</head>
+
+<body>
+ <!--{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for categoria, mensaje in messages %}
+            <div class="alert alert-{{ categoria }}">
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}--> 
+    <section>
+        <form action="/registro_personal" method="post">
+            <label>nombre</label>
+            <br>
+            <input type="text" name="nombre">
+            <br>
+            <label>Tipo de documento</label>
+            <br>
+            <select name="tipoDocumento">
+                <option value="RC">Registro civil</option>
+                <option value="TI">Tarjeta de indentidad</option>
+                <option value="CD">Cedula</option>
+            </select>
+            <br>
+            <label>Numero de documento</label>
+            <br>
+            <input type="number" name="documento">
+            <br>
+            <label>Genero</label>
+            <br>
+            <select name="genero">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+            <br>
+            <label>Fecha de nacimiento</label>
+            <br>
+            <input type="date" name="fechaNacimiento">
+            <br>
+            <label>Edad</label>
+            <br>
+            <input type="number" name="edad">
+            <br>
+            <label>Teléfono</label>
+            <br>
+            <input type="number" name="telefono">
+            <br>
+            <label>Dirección</label>
+            <br>
+            <input type="text" name="direccion">
+            <br>
+            <label>Estado civil</label>
+            <br>
+            <input type="text" name="estadoCivil">
+            <br>
+            <label>Bautizado</label>
+            <br>
+            <input type="text" name="bautizado">
+            <br>
+            <label>Fecha del bautismo</label>
+            <br>
+            <input type="date" name="fechaBautismo">
+            <br>
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+   <!--<script>
+    setTimeout(() => {
+    const alertas = document.querySelectorAll(".alert");
+    alertas.forEach(alerta => {
+        alerta.style.display = "none";
+    });
+}, 3000);
+</script>--> 
+
+</body>
+</html>

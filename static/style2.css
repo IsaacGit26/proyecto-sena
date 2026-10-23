@@ -1,0 +1,110 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF0E6;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+form {
+    background-color: #0b5dd7bf;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+input {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: 'Inknut Antiqua', sans-serif;
+    font-size: 15px;
+    border: none;
+    background-color: #01ff44;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: aqua;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin-top: -50px;
+}
+
+a:hover{
+    color: #0b5ed7;
+}
+
+select {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    margin: 10px 0;
+    box-sizing: border-box;
+
+}
+
+
+@media (max-width: 768px) {
+    .cards {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .card {
+        max-width: 100%;
+    }
+
+    nav {
+        width: 95%;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
