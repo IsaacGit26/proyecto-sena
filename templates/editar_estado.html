@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar estado</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+
+</head>
+<body>
+    <footer>
+        <h2>Editar</h2>
+    </footer>
+    <section>
+        <form action="" method="post">
+            <label>Estado</label>
+
+        <select name="estadoPersona_idestadoPersona">
+
+        <option value="1">Activo</option>
+        <option value="2">Inactivo</option>
+        <option value="3">Trasladado</option>
+        <option value="4">Fallecido</option>
+
+        </select>
+
+        <button type="submit">Guardar</button>
+        </form>
+    </section>
+</body>
+</html>

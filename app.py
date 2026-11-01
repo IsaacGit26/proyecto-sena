@@ -68,7 +68,7 @@ def login():
     conexion = conectar()
     cursor = conexion.cursor(dictionary=True)
 
-    # 3. Consultar SOLO por correo electrónico (la contraseña se valida abajo con bcrypt)
+
     cursor.execute(
         """
         SELECT * FROM usuarios
@@ -81,7 +81,7 @@ def login():
     cursor.close()
     conexion.close()
 
-    # 4. Verificar la contraseña de forma segura con bcrypt
+
     if usuario_encontrado and bcrypt.checkpw(
         password.encode('utf-8'), 
         usuario_encontrado['password'].encode('utf-8')):
@@ -93,7 +93,7 @@ def login():
         flash("Usuario o contraseña incorrectos", "danger")
         return redirect(url_for("formulario_login"))
 
-
+#insertar datos 
 @app.route("/registro_personal", methods=["GET"])
 def registro_personal():
     if "id_usuario" not in session:
@@ -250,6 +250,44 @@ def editar_persona(id):
         return redirect(url_for("personal"))
 
     return render_template("editar_persona.html", persona=persona)
+
+#editar estado
+
+@app.route("/editar_estado/<int:id>", methods= ["GET", "POST"])
+def editar_estado(id):
+    conexion = conectar()
+    cursor = conexion.cursor(dictionary=True)
+
+    if request.method == "POST":
+        nuevo_estado = request.form["estadoPersona_idestadoPersona"]
+
+        cursor.execute(
+            """
+            UPDATE personas
+            SET estadoPersona_idestadoPersona = %s
+            WHERE idPersonas = %s
+        """, (nuevo_estado,
+              id)
+        )
+
+        conexion.commit()
+        flash("Estado actualizado correctamente", "success")
+        cursor.close()
+        conexion.close()
+        return redirect(url_for("estado_personal"))
+
+    cursor.execute(
+        """
+        SELECT * FROM estadoPersona
+    """
+    )
+    estados = cursor.fetchall()
+    cursor.close()
+    conexion.close()
+    return render_template(
+        "editar_estado.html", estados=estados, id= id
+    )
+
 #Eliminar
 
 @app.route("/eliminar_persona/<int:id>")
@@ -312,9 +350,29 @@ def estado_personal():
 
     if "usuario" not in session:
         return redirect(url_for("formulario_login"))
-    
-    return render_template("estado_personal.html")
 
+    conexion = conectar()
+    cursor = conexion.cursor(dictionary=True)
+
+    cursor.execute(
+        """
+         SELECT
+        p.idPersonas,
+        p.nombre,
+        p.documento,
+        ep.estado
+    FROM personas p
+    LEFT JOIN estadoPersona ep
+        ON p.estadoPersona_idestadoPersona = ep.idestadoPersona
+    WHERE p.id_usuario = %s
+""", (session["id_usuario"],))    
+
+    personas = cursor.fetchall()
+    cursor.close()
+    conexion.close()
+
+    
+    return render_template("estado_personal.html", personas=personas)
 @app.route("/veredas")
 def veredas():
 

@@ -11,9 +11,9 @@ nav {
     background-color: rgb(25, 119, 251);
     border-radius: 8px;
     box-shadow: 2px 4px rgba(0, 0, 0, 0.2);
-    /* Sombra más natural */
-    width: 90%;
-    max-width: 600px;
+  
+    
+    max-width: 800px;
     min-height: 50px;
     margin: 30px auto;
     padding: 10px;

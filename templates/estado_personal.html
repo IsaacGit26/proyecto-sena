@@ -13,12 +13,37 @@
         <nav>
             <a href="{{url_for('panel_principal')}}">Pantalla principal</a>
             <a href="{{url_for('personal')}}">Personal</a>
+            <a href="{{url_for('estado_personal')}}">Estado personal</a>
             <a href="{{url_for('veredas')}}">Veredas</a>
             <a href="{{url_for('familias')}}">Familias</a>
         </nav>
     </footer>
     <section>
         <h2>Estado del personal</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for persona in personas %}
+                <tr>
+                    <td> {{persona.idPersonas}} </td>
+                    <td> {{persona.nombre}} </td>
+                    <td> {{persona.documento}} </td>
+                    <td> {{persona.estado}} </td>
+                    <td>
+                        <a href="{{url_for('editar_estado', id=persona.idPersonas)}}">Cambiar estado</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
 </body>
 </html>
